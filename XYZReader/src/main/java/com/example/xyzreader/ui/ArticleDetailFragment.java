@@ -11,6 +11,7 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
@@ -289,6 +290,10 @@ public class ArticleDetailFragment extends Fragment implements
         }
 
         bindViews();
+        View view = getActivity().findViewById(R.id.article_detail_layout);
+        String message = "Load Complete";
+        int duration = Snackbar.LENGTH_LONG;
+        showSnackbar(view, message, duration);
     }
 
     @Override
@@ -306,5 +311,19 @@ public class ArticleDetailFragment extends Fragment implements
         return mIsCard
                 ? (int) mPhotoContainerView.getTranslationY() + mPhotoView.getHeight() - mScrollY
                 : mPhotoView.getHeight() - mScrollY;
+    }
+
+    public void showSnackbar(View view, String message, int duration)
+    {
+        final Snackbar snackbar = Snackbar.make(view, message, duration);
+
+        snackbar.setAction("OK", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+            }
+        });
+
+        snackbar.show();
     }
 }

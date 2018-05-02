@@ -2,7 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/draw_insets_frame_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:theme="@style/Theme.Bacon">
 
     <com.example.xyzreader.ui.ObservableScrollView
         android:id="@+id/scrollview"
@@ -23,7 +24,8 @@
                     android:id="@+id/photo"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="fill_horizontal"
+                    android:scaleType="centerCrop"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -100,7 +102,7 @@
         android:orientation="vertical"
         android:layout_gravity="bottom|end">
 
-        <ImageButton
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/up_fab"
             android:layout_width="56dp"
             android:layout_height="56dp"
@@ -108,11 +110,10 @@
             android:layout_marginRight="@dimen/fab_margin"
             android:background="@drawable/add_fab_background"
             android:contentDescription="@string/action_share"
-            android:elevation="@dimen/fab_elevation"
             android:src="@drawable/ic_arrow_back"
             android:stateListAnimator="@anim/fab_state_list_anim" />
 
-        <ImageButton
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/share_fab"
             android:layout_width="56dp"
             android:layout_height="56dp"
@@ -120,7 +121,6 @@
             android:layout_marginRight="@dimen/fab_margin"
             android:background="@drawable/add_fab_background"
             android:contentDescription="@string/action_share"
-            android:elevation="@dimen/fab_elevation"
             android:src="@drawable/ic_share"
             android:stateListAnimator="@anim/fab_state_list_anim" />
     </LinearLayout>

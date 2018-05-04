@@ -150,13 +150,6 @@ public class ArticleDetailFragment extends Fragment implements
             }
         });
 
-        mRootView.findViewById(R.id.up_fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
-
         bindViews();
         updateStatusBar();
         return mRootView;
@@ -290,7 +283,7 @@ public class ArticleDetailFragment extends Fragment implements
         }
 
         bindViews();
-        View view = getActivity().findViewById(R.id.article_detail_layout);
+        View view = getActivity().findViewById(R.id.draw_insets_coordinator_layout);
         String message = "Load Complete";
         int duration = Snackbar.LENGTH_LONG;
         showSnackbar(view, message, duration);
@@ -312,6 +305,7 @@ public class ArticleDetailFragment extends Fragment implements
                 ? (int) mPhotoContainerView.getTranslationY() + mPhotoView.getHeight() - mScrollY
                 : mPhotoView.getHeight() - mScrollY;
     }
+
 
     public void showSnackbar(View view, String message, int duration)
     {
